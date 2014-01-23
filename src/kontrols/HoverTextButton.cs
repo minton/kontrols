@@ -1,6 +1,5 @@
-﻿using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
+﻿using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace kontrols
@@ -17,13 +16,15 @@ namespace kontrols
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.DoubleBuffer | ControlStyles.UserPaint , true);
             UpdateStyles();
             Paint += Render;
-            MouseHover += (s, e) => { _mouseIsOverControl = true; };
-            MouseLeave += (s, e) => { _mouseIsOverControl = false; };
+            MouseEnter += (s, e) => { MouseIsOverControl = true; };
+            MouseLeave += (s, e) => { MouseIsOverControl = false; };
         }
 
         /// <summary>
         /// The color used when the mouse is not over the control.
         /// </summary>
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override Color ForeColor
         {
             get
@@ -38,7 +39,9 @@ namespace kontrols
 
         /// <summary>
         /// The color used when the mouse is over the control.
-        /// </summary>
+        /// </summary>        
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public Color HoverForeColor
         {
             get
@@ -52,14 +55,36 @@ namespace kontrols
             }
         }
 
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public override string Text
+        {
+            get { return base.Text; }
+            set { base.Text = value; Invalidate(); }
+        }
+
+        bool MouseIsOverControl
+        {
+            set
+            {
+                _mouseIsOverControl = value;
+                Invalidate();
+            }
+        }
+
         void Render(object sender, PaintEventArgs e)
         {
             var graphics = e.Graphics;
-            //graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            //graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(BackColor);
             if (string.IsNullOrWhiteSpace(Text)) return;
-            TextRenderer.DrawText(graphics, Text, Font, new Point(0, 0), _mouseIsOverControl ? _hoverForeColor : _foreColor, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+            TextRenderer.DrawText(graphics, 
+                                  Text, 
+                                  Font, 
+                                  ClientRectangle, 
+                                  _mouseIsOverControl ? _hoverForeColor : _foreColor, 
+                                  TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
         }
     }
 }
