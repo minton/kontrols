@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HoverImageButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HoverImageButton.Designer.cs">
+      <DependentUpon>HoverImageButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="HoverTextButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -48,8 +54,12 @@
       <DependentUpon>HoverTextButton.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="HoverImageButton.resx">
+      <DependentUpon>HoverImageButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HoverTextButton.resx">
       <DependentUpon>HoverTextButton.cs</DependentUpon>
     </EmbeddedResource>
