@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 namespace kontrols
 {
+    [DefaultEvent("Click")]
     public partial class HoverTextButton : UserControl
     {
         Color _foreColor;
