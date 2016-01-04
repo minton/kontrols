@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace kontrols.examples
 {
@@ -14,7 +6,18 @@ namespace kontrols.examples
     {
         public Main()
         {
-            InitializeComponent();
+            InitializeComponent();            
+        }        
+
+        void ButtonClicked(object sender, System.EventArgs e)
+        {
+            MessageBox.Show(string.Format("You clicked the {0}.", sender.GetType().Name));
         }
+
+        void ToggleClicked(object sender, System.EventArgs e)
+        {
+            MessageBox.Show(string.Format("You clicked the {0}. \r\nCurrent state: {1}.", sender.GetType().Name, PlayPause.Toggled));
+        }
+
     }
 }
