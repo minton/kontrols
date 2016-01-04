@@ -53,6 +53,12 @@
     <Compile Include="HoverTextButton.Designer.cs">
       <DependentUpon>HoverTextButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="ToggleImageButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToggleImageButton.Designer.cs">
+      <DependentUpon>ToggleImageButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Renderer.cs" />
   </ItemGroup>
@@ -62,6 +68,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HoverTextButton.resx">
       <DependentUpon>HoverTextButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToggleImageButton.resx">
+      <DependentUpon>ToggleImageButton.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
