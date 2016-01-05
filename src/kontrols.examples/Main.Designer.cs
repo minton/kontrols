@@ -30,13 +30,13 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.GlobalWar = new kontrols.HoverTextButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.RedDot = new kontrols.HoverImageButton();
-            this.GlobalWar = new kontrols.HoverTextButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.PlayPause = new kontrols.ToggleImageButton();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -63,6 +63,17 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Move the cursor over this button to see the text color change.";
             // 
+            // GlobalWar
+            // 
+            this.GlobalWar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GlobalWar.HoverForeColor = System.Drawing.Color.Blue;
+            this.GlobalWar.Location = new System.Drawing.Point(206, 52);
+            this.GlobalWar.Name = "GlobalWar";
+            this.GlobalWar.Size = new System.Drawing.Size(153, 53);
+            this.GlobalWar.TabIndex = 0;
+            this.GlobalWar.Text = "Global Thermal Nuclear War";
+            this.GlobalWar.Click += new System.EventHandler(this.ButtonClicked);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label2);
@@ -84,27 +95,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Move the cursor over this button to see the image change.";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.PlayPause);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(12, 260);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(564, 138);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "ToggleImageButton";
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label3.Location = new System.Drawing.Point(6, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(552, 28);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Click the control to toggle the image.";
-            // 
             // RedDot
             // 
             this.RedDot.HoverForeColor = System.Drawing.Color.Empty;
@@ -117,16 +107,16 @@
             this.RedDot.TabIndex = 1;
             this.RedDot.Click += new System.EventHandler(this.ButtonClicked);
             // 
-            // GlobalWar
+            // groupBox3
             // 
-            this.GlobalWar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.GlobalWar.HoverForeColor = System.Drawing.Color.Blue;
-            this.GlobalWar.Location = new System.Drawing.Point(206, 52);
-            this.GlobalWar.Name = "GlobalWar";
-            this.GlobalWar.Size = new System.Drawing.Size(153, 53);
-            this.GlobalWar.TabIndex = 0;
-            this.GlobalWar.Text = "Global Thermal Nuclear War";
-            this.GlobalWar.Click += new System.EventHandler(this.ButtonClicked);
+            this.groupBox3.Controls.Add(this.PlayPause);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Location = new System.Drawing.Point(12, 260);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(564, 121);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "ToggleImageButton";
             // 
             // PlayPause
             // 
@@ -141,16 +131,26 @@
             this.PlayPause.Toggled = false;
             this.PlayPause.Click += new System.EventHandler(this.ToggleClicked);
             // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label3.Location = new System.Drawing.Point(6, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(552, 28);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Click the control to toggle the image.";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 456);
+            this.ClientSize = new System.Drawing.Size(591, 391);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Main";
-            this.Text = "Form1";
+            this.Text = "Examples";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
