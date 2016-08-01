@@ -14,6 +14,9 @@ namespace kontrols
         bool _mouseIsOverControl;
         bool _toggled;
         PictureBoxSizeMode _sizeMode;
+        Image _disabledImage;
+        Image _disabledToggleImage;
+        bool _grayScaleWhenDisabled;
 
         public ToggleImageButton()
         {
@@ -24,6 +27,20 @@ namespace kontrols
             MouseEnter += (s, e) => { MouseIsOverControl = true; };
             MouseLeave += (s, e) => { MouseIsOverControl = false; };
             Click += (s, e) => { Toggled = !Toggled; };
+            EnabledChanged += (s, e) => Invalidate();
+        }
+
+        /// <summary>
+        /// Determines if the image is renders as gray scale if the button is disabled.
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [DefaultValue(false)]
+        public bool GrayScaleWhenDisabled
+        {
+            get { return _grayScaleWhenDisabled; }
+            set { _grayScaleWhenDisabled = value; Invalidate(); }
         }
 
         /// <summary>
@@ -72,8 +89,18 @@ namespace kontrols
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public Image Image
         {
-            get { return _image; }
-            set { _image = value; Invalidate(); }
+            get
+            {
+                if (Enabled) return _image;
+
+                return _grayScaleWhenDisabled ? _disabledImage : _image;
+            }
+            set
+            {
+                _disabledImage = Utility.GrayScale(value);
+                _image = value;
+                Invalidate();
+            }
         }
 
         /// <summary>
@@ -84,8 +111,18 @@ namespace kontrols
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public Image ImageToggled
         {
-            get { return _toggledImage; }
-            set { _toggledImage = value; Invalidate(); }
+            get
+            {
+                if (Enabled) return _toggledImage;
+
+                return _grayScaleWhenDisabled ? _disabledToggleImage : _toggledImage;
+            }
+            set
+            {
+                _disabledToggleImage = Utility.GrayScale(value);
+                _toggledImage = value;
+                Invalidate();
+            }
         }
 
         [EditorBrowsable(EditorBrowsableState.Always)]
@@ -144,13 +181,13 @@ namespace kontrols
         {            
             if (_toggled && _toggledImage != null)
             {
-                Renderer.DrawImage(this, graphics, _toggledImage, ClientRectangle, SizeMode);
+                Renderer.DrawImage(this, graphics, ImageToggled, ClientRectangle, SizeMode);
                 return;
             }
             
             if (_image != null)
             {
-                Renderer.DrawImage(this, graphics, _image, ClientRectangle, SizeMode);
+                Renderer.DrawImage(this, graphics, Image, ClientRectangle, SizeMode);
             }
         }
     }

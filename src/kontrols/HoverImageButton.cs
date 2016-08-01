@@ -13,6 +13,9 @@ namespace kontrols
         Image _hoverImage;
         bool _mouseIsOverControl;
         PictureBoxSizeMode _sizeMode;
+        Image _disabledImage;
+        Image _disabledHoverImage;
+        bool _grayScaleWhenDisabled;
 
         public HoverImageButton()
         {
@@ -22,6 +25,20 @@ namespace kontrols
             Paint += Render;
             MouseEnter += (s, e) => { MouseIsOverControl = true; };
             MouseLeave += (s, e) => { MouseIsOverControl = false; };
+            EnabledChanged += (s, e) => Invalidate();
+        }
+
+        /// <summary>
+        /// Determines if the image is renders as gray scale if the button is disabled.
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [DefaultValue(false)]
+        public bool GrayScaleWhenDisabled
+        {
+            get { return _grayScaleWhenDisabled; }
+            set { _grayScaleWhenDisabled = value; Invalidate(); }
         }
 
         /// <summary>
@@ -69,9 +86,13 @@ namespace kontrols
         {
             get
             {
-                return _image;
+                if (Enabled) return _image;
+
+                return _grayScaleWhenDisabled ? _disabledImage : _image;
             }
-            set {
+            set
+            {
+                _disabledImage = Utility.GrayScale(value);
                 _image = value;
                 Invalidate();
             }
@@ -86,10 +107,13 @@ namespace kontrols
         {
             get
             {
-                return _hoverImage;
+                if (Enabled) return _hoverImage;
+
+                return _grayScaleWhenDisabled ? _disabledHoverImage : _image;
             }
             set
             {
+                _disabledHoverImage = Utility.GrayScale(value);
                 _hoverImage = value;
                 Invalidate();
             }

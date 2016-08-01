@@ -37,6 +37,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.PlayPause = new kontrols.ToggleImageButton();
             this.label3 = new System.Windows.Forms.Label();
+            this.chkButtonsEnabled = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -46,7 +47,7 @@
             // 
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.GlobalWar);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(15, 48);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(564, 123);
             this.groupBox1.TabIndex = 3;
@@ -78,7 +79,7 @@
             // 
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.RedDot);
-            this.groupBox2.Location = new System.Drawing.Point(12, 147);
+            this.groupBox2.Location = new System.Drawing.Point(15, 183);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(564, 107);
             this.groupBox2.TabIndex = 3;
@@ -97,6 +98,7 @@
             // 
             // RedDot
             // 
+            this.RedDot.GrayScaleWhenDisabled = true;
             this.RedDot.HoverForeColor = System.Drawing.Color.Empty;
             this.RedDot.HoverImage = global::kontrols.examples.Properties.Resources.BreakpointEnabled_6584_32x;
             this.RedDot.Image = global::kontrols.examples.Properties.Resources.BreakpointDisabled_6585_32x;
@@ -111,7 +113,7 @@
             // 
             this.groupBox3.Controls.Add(this.PlayPause);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(12, 260);
+            this.groupBox3.Location = new System.Drawing.Point(15, 296);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(564, 121);
             this.groupBox3.TabIndex = 3;
@@ -120,10 +122,11 @@
             // 
             // PlayPause
             // 
+            this.PlayPause.GrayScaleWhenDisabled = true;
             this.PlayPause.HoverForeColor = System.Drawing.Color.Empty;
             this.PlayPause.Image = global::kontrols.examples.Properties.Resources.StatusAnnotations_Play_32xLG_color;
             this.PlayPause.ImageToggled = global::kontrols.examples.Properties.Resources.StatusAnnotations_Pause_32xLG_color;
-            this.PlayPause.Location = new System.Drawing.Point(266, 66);
+            this.PlayPause.Location = new System.Drawing.Point(266, 63);
             this.PlayPause.Name = "PlayPause";
             this.PlayPause.Size = new System.Drawing.Size(32, 32);
             this.PlayPause.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -141,11 +144,24 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Click the control to toggle the image.";
             // 
+            // chkButtonsEnabled
+            // 
+            this.chkButtonsEnabled.AutoSize = true;
+            this.chkButtonsEnabled.Checked = true;
+            this.chkButtonsEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkButtonsEnabled.Location = new System.Drawing.Point(23, 12);
+            this.chkButtonsEnabled.Name = "chkButtonsEnabled";
+            this.chkButtonsEnabled.Size = new System.Drawing.Size(104, 17);
+            this.chkButtonsEnabled.TabIndex = 3;
+            this.chkButtonsEnabled.Text = "Buttons Enabled";
+            this.chkButtonsEnabled.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 391);
+            this.ClientSize = new System.Drawing.Size(591, 427);
+            this.Controls.Add(this.chkButtonsEnabled);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -155,6 +171,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -169,6 +186,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label3;
         private ToggleImageButton PlayPause;
+        private System.Windows.Forms.CheckBox chkButtonsEnabled;
     }
 }
 

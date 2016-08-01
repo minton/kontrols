@@ -6,7 +6,13 @@ namespace kontrols.examples
     {
         public Main()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            chkButtonsEnabled.CheckedChanged += (s, e) =>
+            {
+                RedDot.Enabled =
+                    GlobalWar.Enabled =
+                        PlayPause.Enabled = !PlayPause.Enabled;
+            };
         }        
 
         void ButtonClicked(object sender, System.EventArgs e)
