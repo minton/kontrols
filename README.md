@@ -3,6 +3,12 @@ kontrols
 
 Random collection of WinForm controls for .NET
 
+## Installing
+
+```
+Install-Package kontrols
+```
+
 ## Controls
 
 |Control|Description|
