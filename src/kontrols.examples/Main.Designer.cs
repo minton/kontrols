@@ -30,15 +30,15 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.GlobalWar = new kontrols.HoverTextButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.RedDot = new kontrols.HoverImageButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.PlayPause = new kontrols.ToggleImageButton();
             this.label3 = new System.Windows.Forms.Label();
             this.chkButtonsEnabled = new System.Windows.Forms.CheckBox();
             this.btnSimpleBorderForm = new System.Windows.Forms.Button();
+            this.PlayPause = new kontrols.ToggleImageButton();
+            this.RedDot = new kontrols.HoverImageButton();
+            this.GlobalWar = new kontrols.HoverTextButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -65,17 +65,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Move the cursor over this button to see the text color change.";
             // 
-            // GlobalWar
-            // 
-            this.GlobalWar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.GlobalWar.HoverForeColor = System.Drawing.Color.Blue;
-            this.GlobalWar.Location = new System.Drawing.Point(206, 52);
-            this.GlobalWar.Name = "GlobalWar";
-            this.GlobalWar.Size = new System.Drawing.Size(153, 53);
-            this.GlobalWar.TabIndex = 0;
-            this.GlobalWar.Text = "Global Thermal Nuclear War";
-            this.GlobalWar.Click += new System.EventHandler(this.ButtonClicked);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label2);
@@ -97,19 +86,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Move the cursor over this button to see the image change.";
             // 
-            // RedDot
-            // 
-            this.RedDot.GrayScaleWhenDisabled = true;
-            this.RedDot.HoverForeColor = System.Drawing.Color.Empty;
-            this.RedDot.HoverImage = global::kontrols.examples.Properties.Resources.BreakpointEnabled_6584_32x;
-            this.RedDot.Image = global::kontrols.examples.Properties.Resources.BreakpointDisabled_6585_32x;
-            this.RedDot.Location = new System.Drawing.Point(266, 54);
-            this.RedDot.Name = "RedDot";
-            this.RedDot.Size = new System.Drawing.Size(32, 32);
-            this.RedDot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.RedDot.TabIndex = 1;
-            this.RedDot.Click += new System.EventHandler(this.ButtonClicked);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.PlayPause);
@@ -120,20 +96,6 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ToggleImageButton";
-            // 
-            // PlayPause
-            // 
-            this.PlayPause.GrayScaleWhenDisabled = true;
-            this.PlayPause.HoverForeColor = System.Drawing.Color.Empty;
-            this.PlayPause.Image = global::kontrols.examples.Properties.Resources.StatusAnnotations_Play_32xLG_color;
-            this.PlayPause.ImageToggled = global::kontrols.examples.Properties.Resources.StatusAnnotations_Pause_32xLG_color;
-            this.PlayPause.Location = new System.Drawing.Point(266, 63);
-            this.PlayPause.Name = "PlayPause";
-            this.PlayPause.Size = new System.Drawing.Size(32, 32);
-            this.PlayPause.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PlayPause.TabIndex = 2;
-            this.PlayPause.Toggled = false;
-            this.PlayPause.Click += new System.EventHandler(this.ToggleClicked);
             // 
             // label3
             // 
@@ -166,6 +128,45 @@
             this.btnSimpleBorderForm.Text = "View SimpleBorderForm Example";
             this.btnSimpleBorderForm.UseVisualStyleBackColor = true;
             this.btnSimpleBorderForm.Click += new System.EventHandler(this.ViewSimpleBorderFormExampleClicked);
+            // 
+            // PlayPause
+            // 
+            this.PlayPause.GrayScaleWhenDisabled = true;
+            this.PlayPause.HoverForeColor = System.Drawing.Color.Empty;
+            this.PlayPause.Image = global::kontrols.examples.Properties.Resources.StatusAnnotations_Play_32xLG_color;
+            this.PlayPause.ImageToggled = global::kontrols.examples.Properties.Resources.StatusAnnotations_Pause_32xLG_color;
+            this.PlayPause.Location = new System.Drawing.Point(266, 63);
+            this.PlayPause.Name = "PlayPause";
+            this.PlayPause.Size = new System.Drawing.Size(32, 32);
+            this.PlayPause.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PlayPause.TabIndex = 2;
+            this.PlayPause.Toggled = false;
+            this.PlayPause.Click += new System.EventHandler(this.ToggleClicked);
+            // 
+            // RedDot
+            // 
+            this.RedDot.GrayScaleWhenDisabled = true;
+            this.RedDot.HoverForeColor = System.Drawing.Color.Empty;
+            this.RedDot.HoverImage = global::kontrols.examples.Properties.Resources.BreakpointEnabled_6584_32x;
+            this.RedDot.Image = global::kontrols.examples.Properties.Resources.BreakpointDisabled_6585_32x;
+            this.RedDot.Location = new System.Drawing.Point(266, 54);
+            this.RedDot.Name = "RedDot";
+            this.RedDot.Size = new System.Drawing.Size(32, 32);
+            this.RedDot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.RedDot.TabIndex = 1;
+            this.RedDot.Click += new System.EventHandler(this.ButtonClicked);
+            // 
+            // GlobalWar
+            // 
+            this.GlobalWar.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.GlobalWar.HasBorder = true;
+            this.GlobalWar.HoverForeColor = System.Drawing.Color.Cyan;
+            this.GlobalWar.Location = new System.Drawing.Point(206, 52);
+            this.GlobalWar.Name = "GlobalWar";
+            this.GlobalWar.Size = new System.Drawing.Size(162, 53);
+            this.GlobalWar.TabIndex = 0;
+            this.GlobalWar.Text = "Global Thermal Nuclear War";
+            this.GlobalWar.Click += new System.EventHandler(this.ButtonClicked);
             // 
             // Main
             // 

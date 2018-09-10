@@ -7,7 +7,7 @@ namespace kontrols
     [DefaultEvent("Click")]
     public partial class HoverTextButton : UserControl
     {
-        Color _foreColor;
+        bool _hasBorder;
         Color _hoverForeColor;
         bool _mouseIsOverControl;
 
@@ -26,14 +26,16 @@ namespace kontrols
         /// </summary>
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public override Color ForeColor
+        [DefaultValue(false)]
+        public bool HasBorder
         {
             get
             {
-                return _foreColor;
+                return _hasBorder;
             }
             set {
-                _foreColor = value;
+                _hasBorder = value;
+                if (_hasBorder) BorderStyle = BorderStyle.None;
                 Invalidate();
             }
         }
@@ -80,12 +82,21 @@ namespace kontrols
             var graphics = e.Graphics;
             graphics.Clear(BackColor);
             if (string.IsNullOrWhiteSpace(Text)) return;
+            var color = _mouseIsOverControl ? _hoverForeColor : ForeColor;
             TextRenderer.DrawText(graphics, 
                                   Text, 
                                   Font, 
                                   ClientRectangle, 
-                                  _mouseIsOverControl ? _hoverForeColor : _foreColor, 
+                                  color, 
                                   TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+
+            if (_hasBorder)
+            {
+                using (var p = new Pen(color, 2))
+                {
+                    e.Graphics.DrawRectangle(p, 2, 2, Width-4, Height -4);
+                }
+            }
         }
     }
 }
