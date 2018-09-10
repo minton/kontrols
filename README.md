@@ -37,6 +37,9 @@ The image-based controls can also display text that can be configured using the 
 
 This is a frameless (i.e., `FormBorderStyle=None`) window with a solid colored border.
 
+![](https://github.com/minton/kontrols/raw/master/SimpleBorderForm.png)
+
+
 ### Examples
 
 Included in the `src` folder is an example application that show how to use each of the controls. 
