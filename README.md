@@ -53,6 +53,10 @@ public partial class MyNewForm : SimpleBorderForm
 ```
 Now set the `BorderColor` property to any color and design the form like normal.
 
+#### Moving the form around
+
+By default the user can click any part of the form and drag it around. If you'd like the user to be able to move the form using a control you've added to it (i.e., a `Label` acting as the title) you can make that control draggable via the `AddDraggableControl()` method.
+
 ![](https://github.com/minton/kontrols/raw/master/SimpleBorderForm.png)
 
 
