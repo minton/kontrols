@@ -5,6 +5,8 @@ Random collection of WinForm controls for .NET
 
 ## Installing
 
+kontrols is listed on NuGet here: https://www.nuget.org/packages/kontrols/ and can be installed from the NuGet Package manager: 
+
 ```
 Install-Package kontrols
 ```
