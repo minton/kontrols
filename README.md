@@ -45,6 +45,14 @@ The image-based controls can also display text that can be configured using the 
 
 This is a frameless (i.e., `FormBorderStyle=None`) window with a solid colored border.
 
+1. Add a new Windows Form to your application. For this example, the form was named `MyNewForm`.
+1. View the code for `MyNewForm.cs` and change it to inherit from `SimpleBorderForm` instead of `Form` like so:
+
+```c#
+public partial class MyNewForm : SimpleBorderForm
+```
+Now set the `BorderColor` property to any color and design the form like normal.
+
 ![](https://github.com/minton/kontrols/raw/master/SimpleBorderForm.png)
 
 
