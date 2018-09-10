@@ -3,6 +3,14 @@ kontrols
 
 Random collection of WinForm controls for .NET
 
+## Installing
+
+kontrols is listed on NuGet here: https://www.nuget.org/packages/kontrols/ and can be installed from the NuGet Package manager: 
+
+```
+Install-Package kontrols
+```
+
 ## Controls
 
 |Control|Description|
@@ -36,6 +44,21 @@ The image-based controls can also display text that can be configured using the 
 ### Using `SimpleBorderForm`
 
 This is a frameless (i.e., `FormBorderStyle=None`) window with a solid colored border.
+
+1. Add a new Windows Form to your application. For this example, the form was named `MyNewForm`.
+1. View the code for `MyNewForm.cs` and change it to inherit from `SimpleBorderForm` instead of `Form` like so:
+
+```c#
+public partial class MyNewForm : SimpleBorderForm
+```
+Now set the `BorderColor` property to any color and design the form like normal.
+
+#### Moving the form around
+
+By default the user can click any part of the form and drag it around. If you'd like the user to be able to move the form using a control you've added to it (i.e., a `Label` acting as the title) you can make that control draggable via the `AddDraggableControl()` method.
+
+![](https://github.com/minton/kontrols/raw/master/SimpleBorderForm.png)
+
 
 ### Examples
 
