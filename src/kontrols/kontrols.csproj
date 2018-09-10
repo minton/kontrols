@@ -53,6 +53,12 @@
     <Compile Include="HoverTextButton.Designer.cs">
       <DependentUpon>HoverTextButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="SimpleBorderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimpleBorderForm.Designer.cs">
+      <DependentUpon>SimpleBorderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ToggleImageButton.cs">
       <SubType>UserControl</SubType>
     </Compile>

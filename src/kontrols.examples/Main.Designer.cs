@@ -38,6 +38,7 @@
             this.PlayPause = new kontrols.ToggleImageButton();
             this.label3 = new System.Windows.Forms.Label();
             this.chkButtonsEnabled = new System.Windows.Forms.CheckBox();
+            this.btnSimpleBorderForm = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -156,11 +157,22 @@
             this.chkButtonsEnabled.Text = "Buttons Enabled";
             this.chkButtonsEnabled.UseVisualStyleBackColor = true;
             // 
+            // btnSimpleBorderForm
+            // 
+            this.btnSimpleBorderForm.Location = new System.Drawing.Point(349, 12);
+            this.btnSimpleBorderForm.Name = "btnSimpleBorderForm";
+            this.btnSimpleBorderForm.Size = new System.Drawing.Size(230, 30);
+            this.btnSimpleBorderForm.TabIndex = 4;
+            this.btnSimpleBorderForm.Text = "View SimpleBorderForm Example";
+            this.btnSimpleBorderForm.UseVisualStyleBackColor = true;
+            this.btnSimpleBorderForm.Click += new System.EventHandler(this.ViewSimpleBorderFormExampleClicked);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 427);
+            this.Controls.Add(this.btnSimpleBorderForm);
             this.Controls.Add(this.chkButtonsEnabled);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -187,6 +199,7 @@
         private System.Windows.Forms.Label label3;
         private ToggleImageButton PlayPause;
         private System.Windows.Forms.CheckBox chkButtonsEnabled;
+        private System.Windows.Forms.Button btnSimpleBorderForm;
     }
 }
 

@@ -10,6 +10,7 @@ Random collection of WinForm controls for .NET
 |`HoverTextButton`|Displays text that changes color when the user places the cursor over the control.|
 |`HoverImageButton`|This control displays an image that changes when the user places the cursor over the control.|
 |`ToggleImageButton`|Displays an image that changes depending on if the control is toggled or not.|
+|`SimpleBorderForm`|A frameless Windows Form with a solid color border that is draggable.|
 
 ### Using `HoverTextButton`
 
@@ -31,6 +32,10 @@ The image-based controls can also display text that can be configured using the 
 |`Image`|[`Image`](https://msdn.microsoft.com/en-us/library/system.drawing.image(v=vs.110).aspx)|The image displayed when the cursor is **not** over the control.|
 |`HoverImage`|[`Image`](https://msdn.microsoft.com/en-us/library/system.drawing.image(v=vs.110).aspx)|The image displayed when the cursor is over the control.|
 |`SizeMode`|[`PictureBoxSizeMode`](https://msdn.microsoft.com/en-us/library/system.windows.forms.pictureboxsizemode(v=vs.110).aspx)| This property is borrowed from the standard [`PictureBox`](https://msdn.microsoft.com/en-us/library/System.Windows.Forms.PictureBox(v=vs.110).aspx) control and provides the same behavior.
+
+### Using `SimpleBorderForm`
+
+This is a frameless (i.e., `FormBorderStyle=None`) window with a solid colored border.
 
 ### Examples
 
