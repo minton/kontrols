@@ -58,6 +58,12 @@
     <Compile Include="SampleSimpleBorderForm.Designer.cs">
       <DependentUpon>SampleSimpleBorderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ZoomMenuExampleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZoomMenuExampleForm.Designer.cs">
+      <DependentUpon>ZoomMenuExampleForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -73,6 +79,9 @@
     </Compile>
     <EmbeddedResource Include="SampleSimpleBorderForm.resx">
       <DependentUpon>SampleSimpleBorderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZoomMenuExampleForm.resx">
+      <DependentUpon>ZoomMenuExampleForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -107,6 +116,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BreakpointDisabled_6585_32x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\explorer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hyper1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IE1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Powershell1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iBooksAppIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iMovie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iTunes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Numbers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrefApp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Telegram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Xcode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kontrols.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

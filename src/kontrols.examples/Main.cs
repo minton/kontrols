@@ -4,39 +4,59 @@ using System.Windows.Forms;
 
 namespace kontrols.examples
 {
-    public partial class Main : Form
+    public partial class Main : SimpleBorderForm
     {
         public Main()
         {
             InitializeComponent();
+            BorderColor = GetRandomColor();
             chkButtonsEnabled.CheckedChanged += (s, e) =>
             {
                 RedDot.Enabled =
                     GlobalWar.Enabled =
-                        PlayPause.Enabled = !PlayPause.Enabled;
+                        SimpleBorderFormSample.Enabled =
+                            ZoomMenuSample.Enabled =
+                                diEdge.Enabled =
+                                    diExplorer.Enabled =
+                                        diPowerShell.Enabled =
+                                            PlayPause.Enabled = 
+                                                PlayPause.Enabled = chkButtonsEnabled.Checked;
             };
         }        
 
-        void ButtonClicked(object sender, System.EventArgs e)
+        void ButtonClicked(object sender, EventArgs e)
         {
-            MessageBox.Show(string.Format("You clicked the {0}.", sender.GetType().Name));
+            var text = ((Control) sender).Text;
+            var what = string.IsNullOrEmpty(text) ? "Me" : text;
+            MessageBox.Show($"You clicked the {what}.");
         }
 
-        void ToggleClicked(object sender, System.EventArgs e)
+        void ToggleClicked(object sender, EventArgs e)
         {
-            MessageBox.Show(string.Format("You clicked the {0}. \r\nCurrent state: {1}.", sender.GetType().Name, PlayPause.Toggled));
+            MessageBox.Show($"You clicked the {sender.GetType().Name}. \r\nCurrent state: {PlayPause.Toggled}.");
         }
 
-        private void ViewSimpleBorderFormExampleClicked(object sender, System.EventArgs e)
-        {
-            var borderForm = new SampleSimpleBorderForm{BorderColor = GetRandomColor()};
-            borderForm.Show();
-        }
-
-        private Color GetRandomColor()
+        Color GetRandomColor()
         {
             var colors = new[] {Color.Aqua, Color.Orange, Color.Plum, Color.DarkOrchid, Color.LightBlue, Color.Yellow};
             return colors[new Random().Next(colors.Length)];
+        }
+
+        void ZoomMenuSampleClicked(object sender, EventArgs e)
+        {
+            var zoom = new ZoomMenuExampleForm();
+            zoom.ShowDialog();
+        }
+
+        void SimpleBorderFormSampleClicked(object sender, EventArgs e)
+        {
+            var borderForm = new SampleSimpleBorderForm{BorderColor = GetRandomColor()};
+            borderForm.ShowDialog();
+        }
+
+        void ExitClicked(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
