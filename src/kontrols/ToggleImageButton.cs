@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -31,7 +32,7 @@ namespace kontrols
         }
 
         /// <summary>
-        /// Determines if the image is renders as gray scale if the button is disabled.
+        /// Determines if the text and image are rendered as gray scale if the button is disabled.
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
@@ -53,7 +54,8 @@ namespace kontrols
         {
             get
             {
-                return _foreColor;
+                if (Enabled) return _foreColor;
+                return _grayScaleWhenDisabled ? Color.DarkGray : _foreColor;
             }
             set
             {
@@ -174,7 +176,7 @@ namespace kontrols
 
             if (string.IsNullOrEmpty(Text)) return;
 
-            Renderer.DrawText(graphics, Text, Font, ClientRectangle, _mouseIsOverControl ? _hoverForeColor : _foreColor);
+            Renderer.DrawText(graphics, Text, Font, ClientRectangle, _mouseIsOverControl ? _hoverForeColor : ForeColor);
         }
 
         void RenderImage(Graphics graphics)

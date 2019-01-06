@@ -8,8 +8,10 @@ namespace kontrols
     public partial class HoverTextButton : UserControl
     {
         bool _hasBorder;
+        Color _foreColor;
         Color _hoverForeColor;
         bool _mouseIsOverControl;
+        bool _grayScaleWhenDisabled;
 
         public HoverTextButton()
         {
@@ -19,6 +21,20 @@ namespace kontrols
             Paint += Render;
             MouseEnter += (s, e) => { MouseIsOverControl = true; };
             MouseLeave += (s, e) => { MouseIsOverControl = false; };
+            EnabledChanged += (s, e) => Invalidate();
+        }
+
+        /// <summary>
+        /// Determines if the text is renders as gray scale if the button is disabled.
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [DefaultValue(false)]
+        public bool GrayScaleWhenDisabled
+        {
+            get { return _grayScaleWhenDisabled; }
+            set { _grayScaleWhenDisabled = value; Invalidate(); }
         }
 
         /// <summary>
@@ -39,7 +55,7 @@ namespace kontrols
                 Invalidate();
             }
         }
-
+        
         /// <summary>
         /// The color used when the mouse is over the control.
         /// </summary>        
@@ -82,19 +98,22 @@ namespace kontrols
             var graphics = e.Graphics;
             graphics.Clear(BackColor);
             if (string.IsNullOrWhiteSpace(Text)) return;
-            var color = _mouseIsOverControl ? _hoverForeColor : ForeColor;
+            var foreColor = !Enabled && _grayScaleWhenDisabled
+                ? Color.DarkGray
+                : ForeColor;
+            var color = _mouseIsOverControl ? _hoverForeColor : foreColor;
             TextRenderer.DrawText(graphics, 
                                   Text, 
                                   Font, 
-                                  ClientRectangle, 
+                                  new Rectangle(0, 0, ClientRectangle.Width -4 , ClientRectangle.Height - 4), 
                                   color, 
-                                  TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+                                  TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.WordBreak | TextFormatFlags.EndEllipsis);
 
             if (_hasBorder)
             {
-                using (var p = new Pen(color, 2))
+                using (var p = new Pen(color, 4))
                 {
-                    e.Graphics.DrawRectangle(p, 2, 2, Width-4, Height -4);
+                    e.Graphics.DrawRectangle(p, ClientRectangle);
                 }
             }
         }
