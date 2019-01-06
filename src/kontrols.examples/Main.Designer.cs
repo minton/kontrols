@@ -28,15 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.GlobalWar = new kontrols.HoverTextButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.RedDot = new kontrols.HoverImageButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.PlayPause = new kontrols.ToggleImageButton();
             this.label3 = new System.Windows.Forms.Label();
             this.chkButtonsEnabled = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.diEdge = new kontrols.DesktopIcon();
+            this.diExplorer = new kontrols.DesktopIcon();
+            this.diPowerShell = new kontrols.DesktopIcon();
             this.btnExit = new kontrols.HoverTextButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.SimpleBorderFormSample = new kontrols.HoverTextButton();
@@ -44,11 +50,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.ZoomMenuSample = new kontrols.HoverTextButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.diEdge = new kontrols.DesktopIcon();
-            this.diExplorer = new kontrols.DesktopIcon();
-            this.diPowerShell = new kontrols.DesktopIcon();
-            this.PlayPause = new kontrols.ToggleImageButton();
-            this.RedDot = new kontrols.HoverImageButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -120,6 +121,20 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Move the cursor over this button to see the image change.";
             // 
+            // RedDot
+            // 
+            this.RedDot.GrayScaleWhenDisabled = true;
+            this.RedDot.HoverForeColor = System.Drawing.Color.Empty;
+            this.RedDot.HoverImage = global::kontrols.examples.Properties.Resources.BreakpointEnabled_6584_32x;
+            this.RedDot.Image = global::kontrols.examples.Properties.Resources.BreakpointDisabled_6585_32x;
+            this.RedDot.Location = new System.Drawing.Point(148, 97);
+            this.RedDot.Margin = new System.Windows.Forms.Padding(6);
+            this.RedDot.Name = "RedDot";
+            this.RedDot.Size = new System.Drawing.Size(32, 32);
+            this.RedDot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.RedDot.TabIndex = 1;
+            this.RedDot.Click += new System.EventHandler(this.ButtonClicked);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.PlayPause);
@@ -132,6 +147,21 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ToggleImageButton";
+            // 
+            // PlayPause
+            // 
+            this.PlayPause.GrayScaleWhenDisabled = true;
+            this.PlayPause.HoverForeColor = System.Drawing.Color.Empty;
+            this.PlayPause.Image = global::kontrols.examples.Properties.Resources.StatusAnnotations_Play_32xLG_color;
+            this.PlayPause.ImageToggled = global::kontrols.examples.Properties.Resources.StatusAnnotations_Pause_32xLG_color;
+            this.PlayPause.Location = new System.Drawing.Point(156, 97);
+            this.PlayPause.Margin = new System.Windows.Forms.Padding(6);
+            this.PlayPause.Name = "PlayPause";
+            this.PlayPause.Size = new System.Drawing.Size(32, 32);
+            this.PlayPause.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PlayPause.TabIndex = 2;
+            this.PlayPause.Toggled = false;
+            this.PlayPause.Click += new System.EventHandler(this.ToggleClicked);
             // 
             // label3
             // 
@@ -172,6 +202,49 @@
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "DesktopIcon";
+            // 
+            // diEdge
+            // 
+            this.diEdge.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.diEdge.GrayScaleWhenDisabled = true;
+            this.diEdge.HoverColor = System.Drawing.Color.Empty;
+            this.diEdge.Image = global::kontrols.examples.Properties.Resources.IE;
+            this.diEdge.Location = new System.Drawing.Point(231, 34);
+            this.diEdge.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.diEdge.Name = "diEdge";
+            this.diEdge.Size = new System.Drawing.Size(90, 98);
+            this.diEdge.TabIndex = 6;
+            this.diEdge.Text = "Microsoft Edge";
+            this.diEdge.Click += new System.EventHandler(this.ButtonClicked);
+            // 
+            // diExplorer
+            // 
+            this.diExplorer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.diExplorer.GrayScaleWhenDisabled = true;
+            this.diExplorer.HoverColor = System.Drawing.Color.Empty;
+            this.diExplorer.Image = global::kontrols.examples.Properties.Resources.explorer;
+            this.diExplorer.Location = new System.Drawing.Point(124, 34);
+            this.diExplorer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.diExplorer.Name = "diExplorer";
+            this.diExplorer.Size = new System.Drawing.Size(90, 98);
+            this.diExplorer.TabIndex = 6;
+            this.diExplorer.Text = "Windows Explorer";
+            this.diExplorer.Click += new System.EventHandler(this.ButtonClicked);
+            // 
+            // diPowerShell
+            // 
+            this.diPowerShell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.diPowerShell.ForeColor = System.Drawing.Color.White;
+            this.diPowerShell.GrayScaleWhenDisabled = true;
+            this.diPowerShell.HoverColor = System.Drawing.Color.Empty;
+            this.diPowerShell.Image = global::kontrols.examples.Properties.Resources.Powershell;
+            this.diPowerShell.Location = new System.Drawing.Point(14, 34);
+            this.diPowerShell.Margin = new System.Windows.Forms.Padding(6);
+            this.diPowerShell.Name = "diPowerShell";
+            this.diPowerShell.Size = new System.Drawing.Size(90, 98);
+            this.diPowerShell.TabIndex = 5;
+            this.diPowerShell.Text = "Windows PowerShell";
+            this.diPowerShell.Click += new System.EventHandler(this.ButtonClicked);
             // 
             // btnExit
             // 
@@ -254,78 +327,6 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // diEdge
-            // 
-            this.diEdge.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.diEdge.GrayScaleWhenDisabled = true;
-            this.diEdge.HoverColor = System.Drawing.Color.Empty;
-            this.diEdge.Image = global::kontrols.examples.Properties.Resources.IE;
-            this.diEdge.Location = new System.Drawing.Point(231, 34);
-            this.diEdge.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.diEdge.Name = "diEdge";
-            this.diEdge.Size = new System.Drawing.Size(90, 98);
-            this.diEdge.TabIndex = 6;
-            this.diEdge.Text = "Microsoft Edge";
-            this.diEdge.Click += new System.EventHandler(this.ButtonClicked);
-            // 
-            // diExplorer
-            // 
-            this.diExplorer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.diExplorer.GrayScaleWhenDisabled = true;
-            this.diExplorer.HoverColor = System.Drawing.Color.Empty;
-            this.diExplorer.Image = global::kontrols.examples.Properties.Resources.explorer;
-            this.diExplorer.Location = new System.Drawing.Point(124, 34);
-            this.diExplorer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.diExplorer.Name = "diExplorer";
-            this.diExplorer.Size = new System.Drawing.Size(90, 98);
-            this.diExplorer.TabIndex = 6;
-            this.diExplorer.Text = "Windows Explorer";
-            this.diExplorer.Click += new System.EventHandler(this.ButtonClicked);
-            // 
-            // diPowerShell
-            // 
-            this.diPowerShell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.diPowerShell.ForeColor = System.Drawing.Color.White;
-            this.diPowerShell.GrayScaleWhenDisabled = true;
-            this.diPowerShell.HoverColor = System.Drawing.Color.Empty;
-            this.diPowerShell.Image = global::kontrols.examples.Properties.Resources.Powershell;
-            this.diPowerShell.Location = new System.Drawing.Point(14, 34);
-            this.diPowerShell.Margin = new System.Windows.Forms.Padding(6);
-            this.diPowerShell.Name = "diPowerShell";
-            this.diPowerShell.Size = new System.Drawing.Size(90, 98);
-            this.diPowerShell.TabIndex = 5;
-            this.diPowerShell.Text = "Windows PowerShell";
-            this.diPowerShell.Click += new System.EventHandler(this.ButtonClicked);
-            // 
-            // PlayPause
-            // 
-            this.PlayPause.GrayScaleWhenDisabled = true;
-            this.PlayPause.HoverForeColor = System.Drawing.Color.Empty;
-            this.PlayPause.Image = global::kontrols.examples.Properties.Resources.StatusAnnotations_Play_32xLG_color;
-            this.PlayPause.ImageToggled = global::kontrols.examples.Properties.Resources.StatusAnnotations_Pause_32xLG_color;
-            this.PlayPause.Location = new System.Drawing.Point(156, 97);
-            this.PlayPause.Margin = new System.Windows.Forms.Padding(6);
-            this.PlayPause.Name = "PlayPause";
-            this.PlayPause.Size = new System.Drawing.Size(32, 32);
-            this.PlayPause.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PlayPause.TabIndex = 2;
-            this.PlayPause.Toggled = false;
-            this.PlayPause.Click += new System.EventHandler(this.ToggleClicked);
-            // 
-            // RedDot
-            // 
-            this.RedDot.GrayScaleWhenDisabled = true;
-            this.RedDot.HoverForeColor = System.Drawing.Color.Empty;
-            this.RedDot.HoverImage = global::kontrols.examples.Properties.Resources.BreakpointEnabled_6584_32x;
-            this.RedDot.Image = global::kontrols.examples.Properties.Resources.BreakpointDisabled_6585_32x;
-            this.RedDot.Location = new System.Drawing.Point(148, 97);
-            this.RedDot.Margin = new System.Windows.Forms.Padding(6);
-            this.RedDot.Name = "RedDot";
-            this.RedDot.Size = new System.Drawing.Size(32, 32);
-            this.RedDot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.RedDot.TabIndex = 1;
-            this.RedDot.Click += new System.EventHandler(this.ButtonClicked);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -340,6 +341,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(11);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

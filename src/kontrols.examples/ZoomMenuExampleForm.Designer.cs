@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZoomMenuExampleForm));
             this.zoomMenu1 = new kontrols.ZoomMenu();
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -66,6 +67,7 @@
             this.Controls.Add(this.zoomMenu1);
             this.Controls.Add(this.label4);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ZoomMenuExampleForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ZoomMenu Example - BETA";
