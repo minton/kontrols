@@ -76,6 +76,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Renderer.cs" />
     <Compile Include="Utility.cs" />
+    <Compile Include="ZoomMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZoomMenu.Designer.cs">
+      <DependentUpon>ZoomMenu.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="HoverImageButton.resx">
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ToggleImageButton.resx">
       <DependentUpon>ToggleImageButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZoomMenu.resx">
+      <DependentUpon>ZoomMenu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
