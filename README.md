@@ -85,6 +85,16 @@ By default the user can click any part of the form and drag it around. If you'd 
 
 Each icon on the ZoomMenu is represented by a `ZoomItem`. To add new `ZoomItems` you can call the `Add` method passing an `Image` and `string` for the icon's image and text respectively.
 
+```c#
+zoomMenu.Add(myImage, "My Icon");
+```
+
+You can respond to icon clicks by subscribing to the `ZoomItemClicked` event:
+
+```c#
+zoomMenu.ZoomItemClicked += item => MessageBox.Show($"You clicked {item.Text}");
+```
+
 ### Examples
 
 Included in the `src` folder is an example application that show how to use each of the controls. 
