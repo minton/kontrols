@@ -2,15 +2,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>kontrols</id>
-        <version>0.1.5</version>
+        <version>0.2.0</version>
         <authors>Michael Minton</authors>
         <licenseUrl>https://raw.githubusercontent.com/minton/kontrols/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/minton/kontrols</projectUrl>
         <iconUrl>https://raw.githubusercontent.com/minton/kontrols/master/kontrols.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Random collection of WinForm controls for .NET</description>
-        <releaseNotes>0.1.5  
-  * Adds ability for HoverTextButton to display a border</releaseNotes>
+        <releaseNotes>0.2.0  
+  * Adds DesktopIcon control
+  * Adds ZoomMenu - BETA
+  * Adds support for grayscale when disabled</releaseNotes>
         <copyright>Michael Minton</copyright>
     </metadata>
 </package>
