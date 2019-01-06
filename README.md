@@ -13,33 +13,52 @@ Install-Package kontrols
 
 ## Controls
 
-|Control|Description|
-|-------|-----------|
-|`HoverTextButton`|Displays text that changes color when the user places the cursor over the control.|
-|`HoverImageButton`|This control displays an image that changes when the user places the cursor over the control.|
-|`ToggleImageButton`|Displays an image that changes depending on if the control is toggled or not.|
-|`SimpleBorderForm`|A frameless Windows Form with a solid color border that is draggable.|
+Control|Description
+-------|-----------
+`DesktopIcon`|A control which mimicks the behavior of a Windows desktop icon.
+`HoverImageButton`|This control displays an image that changes when the user places the cursor over the control.
+`HoverTextButton`|Displays text that changes color when the user places the cursor over the control.
+`SimpleBorderForm`|A frameless Windows Form with a solid color border that is draggable.
+`ToggleImageButton`|Displays an image that changes depending on if the control is toggled or not.
+`ZoomMenu`|An animated menu consisting of one or more `ZoomItem`. This is similiar to the Dock in macOS.
 
-### Using `HoverTextButton`
+### Using `DesktopIcon`
 
-To use this control you need to specify which colors should be used for both the hover and non-hover states.
+This control attemps to mimmick the icons on the Windows desktop. 
 
-|Property|Type|Description|
-|--------|----|-----------|
-|`ForeColor`|[`Color`](https://msdn.microsoft.com/en-us/library/system.drawing.color(v=vs.110).aspx)|The foreground color of the text.|
-|`HoverForeColor`|[`Color`](https://msdn.microsoft.com/en-us/library/system.drawing.color(v=vs.110).aspx)|The foreground color of the text **when the cursor is over the control**.|
+![](https://github.com/minton/kontrols/raw/master/DesktopIcon.PNG)
 
-
+Property|Type|Description
+--------|----|-----------
+`ForeColor`|[`Color`](https://msdn.microsoft.com/en-us/library/system.drawing.color(v=vs.110).aspx)|The foreground color of the text.
+`GrayScaleWhenDisabled`|[`bool`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/bool)|Determines if the control is drawn in grayscale when disabled
+`HoverColor`|[`Color`](https://msdn.microsoft.com/en-us/library/system.drawing.color(v=vs.110).aspx)|The color used to indicate the mouse is over the icon.
+`HoverImage`|[`Image`](https://msdn.microsoft.com/en-us/library/system.drawing.image(v=vs.110).aspx)|The image displayed when the cursor is over the control.`HoverForeColor`|[`Color`](https://msdn.microsoft.com/en-us/library/system.drawing.color(v=vs.110).aspx)|The foreground color of the text **when the cursor is over the control**.
+`IconSquare`|[`IconSize`](https://github.com/minton/kontrols/blob/master/src/kontrols/DesktopIcon.cs#L22)|The icon will be fit into this square while the text string will account for the rest of the space
+`Image`|[`Image`](https://msdn.microsoft.com/en-us/library/system.drawing.image(v=vs.110).aspx)|The image displayed when the cursor is **not** over the control.
 
 ### Using `HoverImageButton` & `ToggleImageButton`
 
 The image-based controls can also display text that can be configured using the same properties as the `HoverTextButton`. To configure the images you'll need to specify which image should be used for both the hover and non-hover states.
 
-|Property|Type|Description|
-|--------|----|-----------|
-|`Image`|[`Image`](https://msdn.microsoft.com/en-us/library/system.drawing.image(v=vs.110).aspx)|The image displayed when the cursor is **not** over the control.|
-|`HoverImage`|[`Image`](https://msdn.microsoft.com/en-us/library/system.drawing.image(v=vs.110).aspx)|The image displayed when the cursor is over the control.|
-|`SizeMode`|[`PictureBoxSizeMode`](https://msdn.microsoft.com/en-us/library/system.windows.forms.pictureboxsizemode(v=vs.110).aspx)| This property is borrowed from the standard [`PictureBox`](https://msdn.microsoft.com/en-us/library/System.Windows.Forms.PictureBox(v=vs.110).aspx) control and provides the same behavior.
+Property|Type|Description
+--------|----|-----------
+`GrayScaleWhenDisabled`|[`bool`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/bool)|Determines if the control is drawn in grayscale when disabled
+`HoverImage`|[`Image`](https://msdn.microsoft.com/en-us/library/system.drawing.image(v=vs.110).aspx)|The image displayed when the cursor is over the control.
+`Image`|[`Image`](https://msdn.microsoft.com/en-us/library/system.drawing.image(v=vs.110).aspx)|The image displayed when the cursor is **not** over the control.
+[`PictureBox`](https://msdn.microsoft.com/en-us/library/System.Windows.Forms.PictureBox(v=vs.110).aspx) control and provides the same behavior.
+`SizeMode`|[`PictureBoxSizeMode`](https://msdn.microsoft.com/en-us/library/system.windows.forms.pictureboxsizemode(v=vs.110).aspx)| This property is borrowed from the standard 
+
+### Using `HoverTextButton`
+
+To use this control you need to specify which colors should be used for both the hover and non-hover states.
+
+Property|Type|Description
+--------|----|-----------
+`ForeColor`|[`Color`](https://msdn.microsoft.com/en-us/library/system.drawing.color(v=vs.110).aspx)|The foreground color of the text.
+`GrayScaleWhenDisabled`|[`bool`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/bool)|Determines if the control is drawn in grayscale when disabled
+`HoverForeColor`|[`Color`](https://msdn.microsoft.com/en-us/library/system.drawing.color(v=vs.110).aspx)|The foreground color of the text **when the cursor is over the control**.
+
 
 ### Using `SimpleBorderForm`
 
@@ -60,6 +79,14 @@ By default the user can click any part of the form and drag it around. If you'd 
 ![](https://github.com/minton/kontrols/raw/master/SimpleBorderForm.png)
 
 
+### Using `ZoomMenu`
+
+![](https://github.com/minton/kontrols/raw/master/ZoomMenu.gif)
+
+Each icon on the ZoomMenu is represented by a `ZoomItem`. To add new `ZoomItems` you can call the `Add` method passing an `Image` and `string` for the icon's image and text respectively.
+
 ### Examples
 
 Included in the `src` folder is an example application that show how to use each of the controls. 
+
+![](https://github.com/minton/kontrols/raw/master/SampleApp.PNG)
