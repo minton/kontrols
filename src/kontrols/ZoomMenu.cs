@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -8,10 +7,14 @@ namespace kontrols
 {
     public partial class ZoomMenu : UserControl
     {
-        private BindingList<ZoomItem> _items;
-        private int _columns;
+        BindingList<ZoomItem> _items;
+        int _columns;
         Color _foreColor;
         Color _hoverForeColor;
+
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        public event Action<ZoomItem> ZoomItemClicked;
 
         public ZoomMenu()
         {
@@ -95,13 +98,17 @@ namespace kontrols
                     Enabled =  Enabled
                 };
                 label.Height = label.Height*3;
-                box.Tag = label;
+                var connection = new ZoomConnection
+                {
+                    Box = box,
+                    Label = label,
+                    Item = item
+                };
+                box.Tag = connection;
+                label.Tag = connection;
 
-                box.MouseDown += BoxOnMouseDown;
-                box.MouseUp += BoxOnMouseUp;
-                box.MouseEnter += BoxOnMouseEnter;
-                box.MouseLeave += BoxOnMouseLeave;
-                label.Click += LabelOnClick;
+                box.Click += ItemClicked;
+                label.Click += ItemClicked;
 
                 Controls.Add(box);
                 Controls.Add(label);
@@ -116,27 +123,14 @@ namespace kontrols
             tmr.Start();
         }
 
-        private void LabelOnClick(object sender, EventArgs e)
+        void ItemClicked(object sender, EventArgs e)
         {
+            if (!(((Control) sender).Tag is ZoomConnection connection)) return;
+
+            ZoomItemClicked?.Invoke(connection.Item);
         }
 
-        private void BoxOnMouseLeave(object sender, EventArgs e)
-        {
-        }
-
-        private void BoxOnMouseEnter(object sender, EventArgs e)
-        {
-        }
-
-        private void BoxOnMouseUp(object sender, MouseEventArgs e)
-        {
-        }
-
-        private void BoxOnMouseDown(object sender, MouseEventArgs e)
-        {
-        }
-
-        private void tmr_Tick(object sender, EventArgs e)
+        void tmr_Tick(object sender, EventArgs e)
         {
             if (DesignMode) return;
 
@@ -164,11 +158,12 @@ namespace kontrols
                     box.Width = startSize;
                 }
 
-                if (!(box.Tag is LinkLabel label)) continue;
+                if (!(box.Tag is ZoomConnection connection)) continue;
+                if (connection.Label == null) continue;
 
-                label.Top = box.Top + box.Height + 10;
-                label.Width = box.Width;
-                label.Left = box.Left;
+                connection.Label.Top = box.Top + box.Height + 10;
+                connection.Label.Width = box.Width;
+                connection.Label.Left = box.Left;
             }
         }
 
@@ -195,5 +190,12 @@ namespace kontrols
         [EditorBrowsable(EditorBrowsableState.Always)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string Text { get; set; }
+    }
+
+    public class ZoomConnection
+    {
+        public LinkLabel Label { get; set; }
+        public PictureBox Box { get; set; }
+        public ZoomItem Item { get; set; }
     }
 }

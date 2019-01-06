@@ -9,6 +9,7 @@ namespace kontrols.examples
         {
             InitializeComponent();
             BuildItems();
+            zoomMenu1.ZoomItemClicked += item => MessageBox.Show($"You clicked {item.Text}");
         }
 
         void BuildItems()
