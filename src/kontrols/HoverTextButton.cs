@@ -38,7 +38,7 @@ namespace kontrols
         }
 
         /// <summary>
-        /// The color used when the mouse is not over the control.
+        /// Determines if the border is visible.
         /// </summary>
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
