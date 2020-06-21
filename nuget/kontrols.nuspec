@@ -2,19 +2,16 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>kontrols</id>
-        <version>0.2.2</version>
+        <version>0.2.3</version>
         <authors>Michael Minton</authors>
         <licenseUrl>https://raw.githubusercontent.com/minton/kontrols/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/minton/kontrols</projectUrl>
         <iconUrl>https://raw.githubusercontent.com/minton/kontrols/master/kontrols.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Random collection of WinForm controls for .NET</description>
-        <releaseNotes>0.2.2
-  * Ability to respond to ZoomItem clicks
-  * Updates the sample app with an icon
-  * Adds DesktopIcon control
-  * Adds ZoomMenu - BETA
-  * Adds support for grayscale when disabled</releaseNotes>
+        <releaseNotes>0.2.3
+  * Adds RoundedBorderForm
+        </releaseNotes>
         <copyright>Michael Minton</copyright>
     </metadata>
 </package>
