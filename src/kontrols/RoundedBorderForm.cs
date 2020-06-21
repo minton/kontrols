@@ -37,7 +37,6 @@ namespace kontrols
             set
             {
                 _backgroundColor = value;
-                if (_backgroundColor == Color.Empty) _backgroundColor = Color.PapayaWhip;
                 _backgroundBrush = new SolidBrush(BackgroundColor);
                 _borderPen = new Pen(BackgroundColor, 2);
             }
@@ -48,12 +47,13 @@ namespace kontrols
 
         public RoundedBorderForm()
         {
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.ResizeRedraw, true);
             InitializeComponent();
+            if (BackgroundColor == Color.Empty) BackgroundColor = Color.PapayaWhip;
             TransparencyKey = Color.Lime;
             BackColor = TransparencyKey;
             FormBorderStyle = FormBorderStyle.None;
-            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-            SetStyle(ControlStyles.ResizeRedraw, true);
         }
 
         protected override void OnPaint(PaintEventArgs e)
