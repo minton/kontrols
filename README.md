@@ -19,6 +19,7 @@ Control|Description
 `HoverImageButton`|This control displays an image that changes when the user places the cursor over the control.
 `HoverTextButton`|Displays text that changes color when the user places the cursor over the control.
 `SimpleBorderForm`|A frameless Windows Form with a solid color border that is draggable.
+`RoundedBorderForm`|A frameless Windows Form with a rounded border that is draggable and resizable.
 `ToggleImageButton`|Displays an image that changes depending on if the control is toggled or not.
 `ZoomMenu`|An animated menu consisting of one or more `ZoomItem`. This is similiar to the Dock in macOS.
 
@@ -78,6 +79,27 @@ By default the user can click any part of the form and drag it around. If you'd 
 
 ![](https://github.com/minton/kontrols/raw/master/SimpleBorderForm.png)
 
+### Using `RoundedBorderForm`
+
+This is a frameless (i.e., `FormBorderStyle=None`) window with a rounded border. It is resizable.
+
+1. Add a new Windows Form to your application. For this example, the form was named `MyNewForm`.
+1. View the code for `MyNewForm.cs` and change it to inherit from `RoundedBorderForm` instead of `Form` like so:
+
+```c#
+public partial class MyNewForm : RoundedBorderForm
+```
+Now set the `CornerRadius` property and the `BackgroundColor` property and then design the form like normal.
+
+#### Moving the form around
+
+By default, the user can click the title area (top center) to drag the form around. 
+
+### Resizing the form
+
+The user can resize the form using any of the four sides or corners excluding directly above the title area.
+
+![](https://github.com/minton/kontrols/raw/master/RoundedBorderForm.png)
 
 ### Using `ZoomMenu`
 
