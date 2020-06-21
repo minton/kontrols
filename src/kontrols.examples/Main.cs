@@ -10,17 +10,18 @@ namespace kontrols.examples
         {
             InitializeComponent();
             BorderColor = GetRandomColor();
-            chkButtonsEnabled.CheckedChanged += (s, e) =>
+            chkDisableControls.CheckedChanged += (s, e) =>
             {
                 RedDot.Enabled =
                     GlobalWar.Enabled =
                         SimpleBorderFormSample.Enabled =
-                            ZoomMenuSample.Enabled =
-                                diEdge.Enabled =
-                                    diExplorer.Enabled =
-                                        diPowerShell.Enabled =
-                                            PlayPause.Enabled = 
-                                                PlayPause.Enabled = chkButtonsEnabled.Checked;
+                            RoundedBorderFormSample.Enabled =
+                                ZoomMenuSample.Enabled =
+                                    diEdge.Enabled =
+                                        diExplorer.Enabled =
+                                            diPowerShell.Enabled =
+                                                PlayPause.Enabled =
+                                                    PlayPause.Enabled = chkDisableControls.Checked;
             };
         }        
 
@@ -50,14 +51,27 @@ namespace kontrols.examples
 
         void SimpleBorderFormSampleClicked(object sender, EventArgs e)
         {
-            var borderForm = new SampleSimpleBorderForm{BorderColor = GetRandomColor()};
+            var borderForm = new SimpleBorderForm{BorderColor = GetRandomColor()};
+            SetupSampleForm(borderForm);
             borderForm.ShowDialog();
         }
 
         void RoundedBorderFormSampleClicked(object sender, EventArgs e)
         {
-            var roundedForm = new SampleRoundedBorderForm {BackgroundColor = GetRandomColor()};
+            var roundedForm = new RoundedBorderForm {BackgroundColor = GetRandomColor(), CornerRadius = 25, ShowTitle = true};
+            SetupSampleForm(roundedForm);
             roundedForm.ShowDialog();
+        }
+
+        void SetupSampleForm(Form form)
+        {
+            form.StartPosition = FormStartPosition.CenterParent;
+            form.Size = new Size(480, 300);
+            form.Text = $"{form.GetType().Name} Example";
+            var btn = new HoverTextButton() {Text = "Close Me", Size = new Size(100, 60), HoverForeColor = Color.Aqua, ForeColor = Color.Black, BackColor = Color.White, HasBorder = true};
+            btn.Location = new Point(form.Width / 2 - btn.Width / 2, form.Height / 2 - btn.Height / 2);
+            btn.Click += (_, __) => btn.FindForm().Close();
+            form.Controls.Add(btn);
         }
 
         void ExitClicked(object sender, EventArgs e)
