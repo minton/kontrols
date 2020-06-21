@@ -73,11 +73,11 @@ public partial class MyNewForm : SimpleBorderForm
 ```
 Now set the `BorderColor` property to any color and design the form like normal.
 
+![](https://github.com/minton/kontrols/raw/master/SimpleBorderForm.png)
+
 #### Moving the form around
 
 By default the user can click any part of the form and drag it around. If you'd like the user to be able to move the form using a control you've added to it (i.e., a `Label` acting as the title) you can make that control draggable via the `AddDraggableControl()` method.
-
-![](https://github.com/minton/kontrols/raw/master/SimpleBorderForm.png)
 
 ### Using `RoundedBorderForm`
 
@@ -91,6 +91,8 @@ public partial class MyNewForm : RoundedBorderForm
 ```
 Now set the `CornerRadius` property and the `BackgroundColor` property and then design the form like normal.
 
+![](https://github.com/minton/kontrols/raw/master/RoundedBorderForm.png)
+
 #### Moving the form around
 
 By default, the user can click the title area (top center) to drag the form around. 
@@ -98,8 +100,6 @@ By default, the user can click the title area (top center) to drag the form arou
 ### Resizing the form
 
 The user can resize the form using any of the four sides or corners excluding directly above the title area.
-
-![](https://github.com/minton/kontrols/raw/master/RoundedBorderForm.png)
 
 ### Using `ZoomMenu`
 
