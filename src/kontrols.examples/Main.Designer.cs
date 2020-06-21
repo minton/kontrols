@@ -45,6 +45,7 @@
             this.diPowerShell = new kontrols.DesktopIcon();
             this.btnExit = new kontrols.HoverTextButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.RoundedBorderFormSample = new kontrols.HoverTextButton();
             this.SimpleBorderFormSample = new kontrols.HoverTextButton();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -261,13 +262,28 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.RoundedBorderFormSample);
             this.groupBox5.Controls.Add(this.SimpleBorderFormSample);
             this.groupBox5.Location = new System.Drawing.Point(385, 290);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(328, 196);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "SimpleBorderForm";
+            this.groupBox5.Text = "Forms";
+            // 
+            // RoundedBorderFormSample
+            // 
+            this.RoundedBorderFormSample.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.RoundedBorderFormSample.GrayScaleWhenDisabled = true;
+            this.RoundedBorderFormSample.HasBorder = true;
+            this.RoundedBorderFormSample.HoverForeColor = System.Drawing.Color.Cyan;
+            this.RoundedBorderFormSample.Location = new System.Drawing.Point(23, 112);
+            this.RoundedBorderFormSample.Margin = new System.Windows.Forms.Padding(37);
+            this.RoundedBorderFormSample.Name = "RoundedBorderFormSample";
+            this.RoundedBorderFormSample.Size = new System.Drawing.Size(294, 61);
+            this.RoundedBorderFormSample.TabIndex = 1;
+            this.RoundedBorderFormSample.Text = "RoundedBorderForm Sample";
+            this.RoundedBorderFormSample.Click += new System.EventHandler(this.RoundedBorderFormSampleClicked);
             // 
             // SimpleBorderFormSample
             // 
@@ -275,12 +291,12 @@
             this.SimpleBorderFormSample.GrayScaleWhenDisabled = true;
             this.SimpleBorderFormSample.HasBorder = true;
             this.SimpleBorderFormSample.HoverForeColor = System.Drawing.Color.Cyan;
-            this.SimpleBorderFormSample.Location = new System.Drawing.Point(58, 84);
+            this.SimpleBorderFormSample.Location = new System.Drawing.Point(23, 34);
             this.SimpleBorderFormSample.Margin = new System.Windows.Forms.Padding(20);
             this.SimpleBorderFormSample.Name = "SimpleBorderFormSample";
-            this.SimpleBorderFormSample.Size = new System.Drawing.Size(212, 82);
+            this.SimpleBorderFormSample.Size = new System.Drawing.Size(294, 61);
             this.SimpleBorderFormSample.TabIndex = 1;
-            this.SimpleBorderFormSample.Text = "Launch SimpleBorderForm Sample";
+            this.SimpleBorderFormSample.Text = "SimpleBorderForm Sample";
             this.SimpleBorderFormSample.Click += new System.EventHandler(this.SimpleBorderFormSampleClicked);
             // 
             // groupBox6
@@ -383,6 +399,7 @@
         private HoverTextButton ZoomMenuSample;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private HoverTextButton RoundedBorderFormSample;
     }
 }
 

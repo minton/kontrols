@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,6 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -61,6 +63,12 @@
       <DependentUpon>HoverTextButton.cs</DependentUpon>
     </Compile>
     <Compile Include="NonResizableControlDesigner.cs" />
+    <Compile Include="RoundedBorderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoundedBorderForm.Designer.cs">
+      <DependentUpon>RoundedBorderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SimpleBorderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +97,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HoverTextButton.resx">
       <DependentUpon>HoverTextButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoundedBorderForm.resx">
+      <DependentUpon>RoundedBorderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SimpleBorderForm.resx">
+      <DependentUpon>SimpleBorderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ToggleImageButton.resx">
       <DependentUpon>ToggleImageButton.cs</DependentUpon>

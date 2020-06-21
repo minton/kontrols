@@ -54,6 +54,12 @@ namespace kontrols.examples
             borderForm.ShowDialog();
         }
 
+        void RoundedBorderFormSampleClicked(object sender, EventArgs e)
+        {
+            var roundedForm = new SampleRoundedBorderForm {BackgroundColor = GetRandomColor()};
+            roundedForm.ShowDialog();
+        }
+
         void ExitClicked(object sender, EventArgs e)
         {
             Application.Exit();
