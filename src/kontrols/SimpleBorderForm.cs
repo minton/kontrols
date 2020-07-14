@@ -37,7 +37,7 @@ namespace kontrols
 
         public Color BorderColor
         {
-            get => _borderColor;
+            get => _borderColor.IsEmpty ? Color.Orange : _borderColor;
             set
             {
                 _borderColor = value;
@@ -59,10 +59,9 @@ namespace kontrols
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             base.OnPaintBackground(e);
-            using var p = new Pen(_borderColor.IsEmpty ? Color.Orange : _borderColor, 2);
+            using var p = new Pen(BorderColor, 2);
             e.Graphics.DrawRectangle(p, 2, 2, Width-4, Height -4);
         }
-
 
         Rectangle CaptionArea => new Rectangle(24, 4, ClientSize.Width - 48, CaptionHeight);
         Rectangle TopSizeArea => new Rectangle(0, 0, ClientSize.Width, ResizableArea);
