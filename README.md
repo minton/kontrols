@@ -56,13 +56,16 @@ To use this control you need to specify which colors should be used for both the
 
 Property|Type|Description
 --------|----|-----------
-`ControlBox`|[`bool`](https://msdn.microsoft.com/en-us/library/api/system.windows.forms.form.controlbox(v=vs.110).aspx)|This property is borrowed from the standard [`Form`](https://msdn.microsoft.com/en-us/library/System.Windows.Forms.Form(v=vs.110).aspx) control and provides the same behavior.
 `ForeColor`|[`Color`](https://msdn.microsoft.com/en-us/library/system.drawing.color(v=vs.110).aspx)|The foreground color of the text.
 `GrayScaleWhenDisabled`|[`bool`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/bool)|Determines if the control is drawn in grayscale when disabled
 `HoverForeColor`|[`Color`](https://msdn.microsoft.com/en-us/library/system.drawing.color(v=vs.110).aspx)|The foreground color of the text **when the cursor is over the control**.
 
 
 ### Using `SimpleBorderForm`
+
+Property|Type|Description
+--------|----|-----------
+`ControlBox`|[`bool`](https://msdn.microsoft.com/en-us/library/api/system.windows.forms.form.controlbox(v=vs.110).aspx)|This property is borrowed from the standard [`Form`](https://msdn.microsoft.com/en-us/library/System.Windows.Forms.Form(v=vs.110).aspx) control and provides the same behavior.
 
 This is a frameless (i.e., `FormBorderStyle=None`) window with a solid colored border.
 
