@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace kontrols
@@ -22,6 +24,9 @@ namespace kontrols
 
         Color _borderColor;
 
+        [Browsable(true)]
+        public bool ShowTitle { get; set; }
+
         public SimpleBorderForm()
         {
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -40,11 +45,22 @@ namespace kontrols
             }
         }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
+            e.Graphics.InterpolationMode = InterpolationMode.High;
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            if (ShowTitle)
+            {
+                TextRenderer.DrawText(e.Graphics, Text, Font, CaptionArea, ForeColor, BackColor, TextFormatFlags.HorizontalCenter);
+            }
+        }
+
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             base.OnPaintBackground(e);
             using var p = new Pen(_borderColor.IsEmpty ? Color.Orange : _borderColor, 2);
-            e.Graphics.DrawRectangle(p, 2, 2, Width - 4, Height - 4);
+            e.Graphics.DrawRectangle(p, 2, 2, Width-4, Height -4);
         }
 
 

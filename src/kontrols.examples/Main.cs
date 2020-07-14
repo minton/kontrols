@@ -51,7 +51,7 @@ namespace kontrols.examples
 
         void SimpleBorderFormSampleClicked(object sender, EventArgs e)
         {
-            var borderForm = new SimpleBorderForm{BorderColor = GetRandomColor()};
+            var borderForm = new SimpleBorderForm{BorderColor = GetRandomColor(), ShowTitle = true};
             SetupSampleForm(borderForm);
             borderForm.ShowDialog();
         }
