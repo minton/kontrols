@@ -9,6 +9,7 @@ namespace kontrols
     {
         Color _foreColor;
         Color _hoverForeColor;
+        Color _hoverBackColor;
         Image _image;
         Image _hoverImage;
         bool _mouseIsOverControl;
@@ -73,6 +74,24 @@ namespace kontrols
             set
             {
                 _hoverForeColor = value;
+                Invalidate();
+            }
+        }
+
+        /// <summary>
+        /// The BackColor used when the mouse is over the control.
+        /// </summary>        
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public Color HoverBackColor
+        {
+            get
+            {
+                return _hoverBackColor.IsEmpty ? BackColor : _hoverBackColor;
+            }
+            set
+            {
+                _hoverBackColor = value;
                 Invalidate();
             }
         }
@@ -152,8 +171,7 @@ namespace kontrols
         void Render(object sender, PaintEventArgs e)
         {
             var graphics = e.Graphics;
-            graphics.Clear(BackColor);
-
+            graphics.Clear(_mouseIsOverControl ? HoverBackColor : BackColor);
             RenderImage(graphics);
 
             if (string.IsNullOrEmpty(Text)) return;
