@@ -8,6 +8,7 @@ namespace kontrols
         public static Image GrayScale(Image original)
         {
             if (original == null) return null;
+
             var newBitmap = new Bitmap(original.Width, original.Height);
             var g = Graphics.FromImage(newBitmap);
 
