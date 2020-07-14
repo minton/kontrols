@@ -47,8 +47,7 @@ Property|Type|Description
 `GrayScaleWhenDisabled`|[`bool`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/bool)|Determines if the control is drawn in grayscale when disabled
 `HoverImage`|[`Image`](https://msdn.microsoft.com/en-us/library/system.drawing.image(v=vs.110).aspx)|The image displayed when the cursor is over the control.
 `Image`|[`Image`](https://msdn.microsoft.com/en-us/library/system.drawing.image(v=vs.110).aspx)|The image displayed when the cursor is **not** over the control.
-[`PictureBox`](https://msdn.microsoft.com/en-us/library/System.Windows.Forms.PictureBox(v=vs.110).aspx) control and provides the same behavior.
-`SizeMode`|[`PictureBoxSizeMode`](https://msdn.microsoft.com/en-us/library/system.windows.forms.pictureboxsizemode(v=vs.110).aspx)| This property is borrowed from the standard 
+`SizeMode`|[`PictureBoxSizeMode`](https://msdn.microsoft.com/en-us/library/system.windows.forms.pictureboxsizemode(v=vs.110).aspx)| This property is borrowed from the standard [`PictureBox`](https://msdn.microsoft.com/en-us/library/System.Windows.Forms.PictureBox(v=vs.110).aspx) control and provides the same behavior.
 
 ### Using `HoverTextButton`
 
